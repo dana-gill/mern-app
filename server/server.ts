@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import { userSchema, IUser } from './schemas/User.js';
 import dotenv from 'dotenv';
+import { IUser, userSchema } from './schemas/User';
 
 dotenv.config();
 
@@ -12,10 +12,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mernapp', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mernapp');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

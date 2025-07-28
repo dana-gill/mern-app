@@ -1,7 +1,5 @@
 # MERN App
 
-This was made with Claude
-
 ## Development
 
 To provision a Mongo DB database
